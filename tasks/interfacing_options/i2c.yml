@@ -1,0 +1,15 @@
+---
+- name: Get I2C status
+  shell: "raspi-config nonint get_i2c"
+  register: i2c_status
+  changed_when: False
+
+- name: Enable I2C
+  become: yes
+  shell: "raspi-config nonint do_i2c 0"
+  when: ( I2C == True) and (i2c_status.stdout != '0')
+
+- name: Disable I2C
+  become: yes
+  shell: "raspi-config nonint do_i2c 1"
+  when: ( I2C  == False) and (i2c_status.stdout != '1')

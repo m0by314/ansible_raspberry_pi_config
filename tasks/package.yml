@@ -1,0 +1,15 @@
+---
+- name: Update cache.
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Upgrade all packages to the latest version.
+  apt:
+    upgrade: dist
+
+- name: Install extra packages.
+  apt:
+    name: "{{ raspberry_pi_packages }}"
+    state: present
+  when: raspberry_pi_packages is defined

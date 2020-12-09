@@ -1,0 +1,29 @@
+---
+- name: Add the user 'raspc' to AllowUsers ssh
+  become: yes
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^AllowUsers'
+    line: AllowUsers {{ rasp_user }}
+
+- name: Permit empty password no
+  become: yes
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#PermitEmptyPasswords no'
+    line: PermitEmptyPasswords no
+
+- name: Permit root login no
+  become: yes
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#PermitRootLogin prohibit-password'
+    line: PermitRootLogin no
+
+- name: Change ssh port
+  become: yes
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#Port'
+    line: Port {{ rasp_ssh_port }}
+

@@ -1,0 +1,15 @@
+---
+- name: Get Onewire status
+  shell: "raspi-config nonint get_onewire"
+  register: onewire_status
+  changed_when: False
+
+- name: Enable OneWire
+  become: yes
+  shell: "raspi-config nonint do_onewire 0"
+  when: ( ONEWIRE  == True) and (onewire_status.stdout != '0')
+
+- name: Disable OneWire
+  become: yes
+  shell: "raspi-config nonint do_onewire 1"
+  when: ( ONEWIRE  == False) and (onewire_status.stdout != '1')
