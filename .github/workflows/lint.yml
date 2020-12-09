@@ -5,11 +5,8 @@ name: CI
   push:
     branches:
       - master
-  schedule:
-    - cron: "15 2 * * 5"
-
+        
 jobs:
-
   build:
     name: Lint
     runs-on: ubuntu-latest
