@@ -1,10 +1,8 @@
 ---
-- name: Enable I2C
-  become: yes
-  shell: "raspi-config nonint do_i2c 0"
-  when: ( I2C == True )
+- name: Enable I2C.
+  command: "raspi-config nonint do_i2c 0"
+  when: I2C
 
-- name: Disable I2C
-  become: yes
-  shell: "raspi-config nonint do_i2c 1"
-  when: ( I2C  == False )
+- name: Disable I2C.
+  command: "raspi-config nonint do_i2c 1"
+  when: not I2C

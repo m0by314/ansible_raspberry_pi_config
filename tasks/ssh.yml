@@ -1,29 +1,32 @@
 ---
-- name: Add the user 'raspc' to AllowUsers ssh
-  become: yes
+- name: Add the user 'raspc' to AllowUsers ssh.
   lineinfile:
     path: /etc/ssh/sshd_config
     regexp: '^AllowUsers'
     line: AllowUsers {{ rasp_user }}
 
-- name: Permit empty password no
-  become: yes
+- name: Permit empty password no.
   lineinfile:
     path: /etc/ssh/sshd_config
     regexp: '^#PermitEmptyPasswords no'
     line: PermitEmptyPasswords no
 
-- name: Permit root login no
-  become: yes
+- name: Permit root login no.
   lineinfile:
     path: /etc/ssh/sshd_config
     regexp: '^#PermitRootLogin prohibit-password'
     line: PermitRootLogin no
 
-- name: Change ssh port
-  become: yes
+- name: Change ssh port.
   lineinfile:
     path: /etc/ssh/sshd_config
-    regexp: '^#Port'
+    regexp: 'Port\s+'
     line: Port {{ rasp_ssh_port }}
+  when: rasp_ssh_port
 
+- name: Restart ssh
+  service:
+    name: ssh
+    state: restarted
+  notify:
+    - update ansible port

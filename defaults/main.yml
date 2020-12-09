@@ -1,0 +1,23 @@
+---
+# defaults variable for rasp_config
+
+# New user configuration
+rasp_user:
+rasp_user_encrypted_password:
+rasp_user_password:
+
+# SSH
+rasp_ssh_port:
+ssh_key_file:
+
+# Interfacing Options
+SERIAL: false
+CAMERA: false
+VNC: false
+SPI: false
+I2C: false
+ONEWIRE: false
+RGPIO: false
+
+# Extra Packages
+raspberry_pi_extra_packages:

@@ -1,12 +1,8 @@
 ---
-- name: Enable Camera
-  become: yes
-  shell: "raspi-config nonint do_camera 0"
-  when: ( CAMERA == True )
+- name: Enable Camera.
+  command: "raspi-config nonint do_camera 0"
+  when: CAMERA
 
-- name: Disable Camera
-  become: yes
-  shell: "raspi-config nonint do_camera 1"
-  when: ( CAMERA == False )
-
-
+- name: Disable Camera.
+  command: "raspi-config nonint do_camera 1"
+  when: not CAMERA

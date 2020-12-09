@@ -1,10 +1,11 @@
 ---
-- name: Check if new user exist
+- name: Check if new user exist.
   command: getent passwd "{{ rasp_user }}"
   register: getent
   ignore_errors: yes
+  when: rasp_user|bool
 
-- name: Add the user {{ rasp_user }} with a bash shell, appending the group 'sudo' to the user's groups
+- name: Add the user {{ rasp_user }} with a bash shell, appending the group 'sudo' to the user's groups.
   user:
     name: "{{ rasp_user }}"
     shell: /bin/bash
@@ -12,29 +13,29 @@
     append: yes
     home: /home/{{ rasp_user }}
     create_home: yes
-    password: "{{ encrypted_password }}"
+    password: "{{ rasp_user_encrypted_password }}"
   when: getent is failed
 
-- name: Set authorized ssh key took from file for {{ rasp_user }}
+- name: Set authorized ssh key took from file for {{ rasp_user }}.
   authorized_key:
     user: "{{ rasp_user }}"
     state: present
     key: "{{ lookup('file', ssh_key_file ) }}"
 
-- name: Swaps user {{ rasp_user }}
+- name: Swaps user {{ rasp_user }}.
   set_fact:
     ansible_user: "{{ rasp_user }}"
 
-- name: Set sudo password for {{ rasp_user }}
+- name: Set sudo password for {{ rasp_user }}.
   set_fact:
-    ansible_become_pass: "{{ password }}"
+    ansible_become_pass: "{{ rasp_user_password }}"
 
-- name: Remove /etc/sudoers.d/010_pi-nopasswd
+- name: Remove /etc/sudoers.d/010_pi-nopasswd.
   file:
     path: /etc/sudoers.d/010_pi-nopasswd
     state: absent
 
-- name: Remove the user 'pi'
+- name: Remove the user 'pi'.
   user:
     name: pi
     force: yes

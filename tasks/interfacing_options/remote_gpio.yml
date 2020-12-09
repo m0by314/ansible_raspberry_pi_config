@@ -1,10 +1,8 @@
 ---
-- name: Enable Remote GPIO
-  become: yes
-  shell: "raspi-config nonint do_rgpio 0"
-  when: ( RGPIO == True )
+- name: Enable Remote GPIO.
+  command: "raspi-config nonint do_rgpio 0"
+  when: RGPIO
 
-- name: Disable Remote GPIO
-  become: yes
-  shell: "raspi-config nonint do_rgpio 1"
-  when: ( RGPIO == False )
+- name: Disable Remote GPIO.
+  command: "raspi-config nonint do_rgpio 1"
+  when: not RGPIO

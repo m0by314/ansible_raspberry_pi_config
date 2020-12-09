@@ -1,0 +1,20 @@
+---
+- name: Check that rasp_user variable are filled in.
+  fail:
+      msg: "rasp_user variable is missing."
+  when: not rasp_user
+
+- name: Check that rasp_user_password variable are filled in.
+  fail:
+      msg: "rasp_user_password variable is missing."
+  when: not rasp_user_password
+
+- name: Check that rasp_user_encrypted_password variable are filled in.
+  fail:
+      msg: "rasp_user_encrypted_password variable is missing."
+  when: not rasp_user_encrypted_password
+
+- name: Check that ssh_key_file variable are filled in.
+  fail:
+      msg: "ssh_key_file variable is missing."
+  when: not ssh_key_file

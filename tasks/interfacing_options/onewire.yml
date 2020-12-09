@@ -1,10 +1,8 @@
 ---
-- name: Enable OneWire
-  become: yes
-  shell: "raspi-config nonint do_onewire 0"
-  when: ( ONEWIRE  == True )
+- name: Enable OneWire.
+  command: "raspi-config nonint do_onewire 0"
+  when: ONEWIRE
 
-- name: Disable OneWire
-  become: yes
-  shell: "raspi-config nonint do_onewire 1"
-  when: ( ONEWIRE  == False )
+- name: Disable OneWire.
+  command: "raspi-config nonint do_onewire 1"
+  when: not ONEWIRE

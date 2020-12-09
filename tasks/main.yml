@@ -1,35 +1,44 @@
 ---
+- name: Check prerequisite.
+  import_tasks: check_prerequisite.yml
+
 # Replace PI user
-- name: Replace Pi user by {{ rasp_user }}
+- name: Replace Pi user by {{ rasp_user }}.
   import_tasks: replace_pi_user.yml
 
 # SSH config
-- name: ssh
+- name: ssh.
   import_tasks: ssh.yml
 
+- meta: flush_handlers
+
 # Interfacing options
-- name : camera
+- name: camera.
   import_tasks: interfacing_options/camera.yml
 
-- name : i2c
+- name: i2c.
   import_tasks: interfacing_options/i2c.yml
 
-- name : onewire
+- name: onewire.
   import_tasks: interfacing_options/onewire.yml
 
-- name : remote GPIO
+- name: remote GPIO.
   import_tasks: interfacing_options/remote_gpio.yml
 
-- name : serial
+- name: serial.
   import_tasks: interfacing_options/serial.yml
 
-- name : spi
+- name: spi.
   import_tasks: interfacing_options/spi.yml
 
-- name : vnc
+- name: vnc.
   import_tasks: interfacing_options/vnc.yml
 
-- name : reboot
+# Packages
+- name: Install packages.
+  import_tasks: packages.yml
+
+# Reboot
+- name: Reboot.
   import_tasks: reboot.yml
 
-- meta: flush_handlers

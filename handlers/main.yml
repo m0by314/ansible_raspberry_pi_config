@@ -1,0 +1,5 @@
+---
+- name: update ansible port
+  set_fact:
+    ansible_port: "{{ rasp_ssh_port }}"
+  when: rasp_ssh_port

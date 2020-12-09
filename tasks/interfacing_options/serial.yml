@@ -1,10 +1,8 @@
 ---
-- name: Enable serial
-  become: yes
-  shell: "raspi-config nonint do_serial 0"
-  when: ( SERIAL == True )
+- name: Enable serial.
+  command: "raspi-config nonint do_serial 0"
+  when: SERIAL
 
-- name: Disable serial
-  become: yes
-  shell: "raspi-config nonint do_serial 1"
-  when: ( SERIAL == False )
+- name: Disable serial.
+  command: "raspi-config nonint do_serial 1"
+  when: not SERIAL

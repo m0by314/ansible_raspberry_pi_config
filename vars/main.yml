@@ -1,0 +1,4 @@
+---
+raspberry_pi_basic_packages:
+  - fail2ban
+  - ufw

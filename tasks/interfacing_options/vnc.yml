@@ -1,10 +1,8 @@
 ---
-- name: Enable VNC
-  become: yes
-  shell: "raspi-config nonint do_vnc 0"
-  when: ( VNC == True )
+- name: Enable VNC.
+  command: "raspi-config nonint do_vnc 0"
+  when: VNC
 
-- name: Disable VNC
-  become: yes
-  shell: "raspi-config nonint do_vnc 1"
-  when: ( VNC == False )
+- name: Disable VNC.
+  command: "raspi-config nonint do_vnc 1"
+  when: not VNC

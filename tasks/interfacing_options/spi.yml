@@ -1,10 +1,8 @@
 ---
-- name: Enable SPI
-  become: yes
-  shell: "raspi-config nonint do_spi 0"
-  when: ( SPI  == True )
+- name: Enable SPI.
+  command: "raspi-config nonint do_spi 0"
+  when: SPI
 
-- name: Disable SPI
-  become: yes
-  shell: "raspi-config nonint do_spi 1"
-  when: ( SPI  == False )
+- name: Disable SPI.
+  command: "raspi-config nonint do_spi 1"
+  when: not SPI

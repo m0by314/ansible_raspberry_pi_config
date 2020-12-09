@@ -1,8 +1,5 @@
 ---
-- name: reboot
-  shell: "sleep 1 && shutdown -r now +1"
-  async: 1
-  poll: 0
-  notify:
-    - change ssh port
-    - wait-for-reboot
+- name: Reboot Raspberry PI.
+  reboot:
+    reboot_timeout: 120
+
