@@ -41,4 +41,3 @@
 # Reboot
 - name: Reboot.
   import_tasks: reboot.yml
-

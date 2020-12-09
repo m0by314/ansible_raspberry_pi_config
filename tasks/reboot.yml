@@ -2,4 +2,3 @@
 - name: Reboot Raspberry PI.
   reboot:
     reboot_timeout: 120
-
