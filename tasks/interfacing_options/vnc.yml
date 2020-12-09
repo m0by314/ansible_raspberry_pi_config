@@ -1,15 +1,10 @@
 ---
-- name: Get VNC status
-  shell: "raspi-config nonint get_vnc"
-  register: vnc_status
-  changed_when: False
-
 - name: Enable VNC
   become: yes
   shell: "raspi-config nonint do_vnc 0"
-  when: ( VNC == True) and (vnc_status.stdout != '0')
+  when: ( VNC == True )
 
 - name: Disable VNC
   become: yes
   shell: "raspi-config nonint do_vnc 1"
-  when: ( VNC == False) and (vnc_status.stdout != '1')
+  when: ( VNC == False )

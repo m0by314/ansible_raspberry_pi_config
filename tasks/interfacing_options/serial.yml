@@ -1,20 +1,10 @@
 ---
-- name: Get serial status
-  shell: "raspi-config nonint get_serial"
-  register: serial_status
-  changed_when: False
-
-- name: Get serialHW status
-  shell: "raspi-config nonint get_serial_hw"
-  register: serialhw_status
-  changed_when: False
-
 - name: Enable serial
   become: yes
   shell: "raspi-config nonint do_serial 0"
-  when: ( SERIAL == True) and (serial_status.stdout != '0')
+  when: ( SERIAL == True )
 
 - name: Disable serial
   become: yes
   shell: "raspi-config nonint do_serial 1"
-  when: ( SERIAL == False) and (serial_status.stdout != '1')
+  when: ( SERIAL == False )

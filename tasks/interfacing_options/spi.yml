@@ -1,15 +1,10 @@
 ---
-- name: Get SPI status
-  shell: "raspi-config nonint get_spi"
-  register: spi_status
-  changed_when: False
-
 - name: Enable SPI
   become: yes
   shell: "raspi-config nonint do_spi 0"
-  when: ( SPI  == True) and (spi_status.stdout != '0')
+  when: ( SPI  == True )
 
 - name: Disable SPI
   become: yes
   shell: "raspi-config nonint do_spi 1"
-  when: ( SPI  == False) and (spi_status.stdout != '1')
+  when: ( SPI  == False )

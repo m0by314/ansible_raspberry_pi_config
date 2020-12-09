@@ -1,34 +1,35 @@
 ---
+# Replace PI user
 - name: Replace Pi user by {{ rasp_user }}
   import_tasks: replace_pi_user.yml
 
+# SSH config
+- name: ssh
+  import_tasks: ssh.yml
+
 # Interfacing options
-#- name : camera
-#  import_tasks: interfacing_options/camera.yml
-#
-#- name : i2c
-#  import_tasks: interfacing_options/i2c.yml
-#
-#- name : onewire
-#  import_tasks: interfacing_options/onewire.yml
-#
-#- name : remote GPIO
-#  import_tasks: interfacing_options/remote_gpio.yml
-#
-#- name : serial
-#  import_tasks: interfacing_options/serial.yml
-#
-#- name : spi
-#  import_tasks: interfacing_options/spi.yml
-#
-#- name : vnc
-#  import_tasks: interfacing_options/vnc.yml
+- name : camera
+  import_tasks: interfacing_options/camera.yml
 
-# Security
+- name : i2c
+  import_tasks: interfacing_options/i2c.yml
 
+- name : onewire
+  import_tasks: interfacing_options/onewire.yml
 
-#- name: ssh
-#  import_tasks: ssh.yml
+- name : remote GPIO
+  import_tasks: interfacing_options/remote_gpio.yml
 
-#- name : reboot
-#  import_tasks: reboot.yml
+- name : serial
+  import_tasks: interfacing_options/serial.yml
+
+- name : spi
+  import_tasks: interfacing_options/spi.yml
+
+- name : vnc
+  import_tasks: interfacing_options/vnc.yml
+
+- name : reboot
+  import_tasks: reboot.yml
+
+- meta: flush_handlers
