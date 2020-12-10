@@ -7,7 +7,7 @@ rasp_user_encrypted_password:
 rasp_user_password:
 
 # SSH
-rasp_ssh_port:
+rasp_ssh_port: 22
 ssh_key_file:
 
 # Interfacing Options
@@ -20,4 +20,7 @@ ONEWIRE: false
 RGPIO: false
 
 # Extra Packages
-raspberry_pi_extra_packages:
+rasp_extra_packages:
+
+# Firewall open port
+rasp_open_firewall_port:

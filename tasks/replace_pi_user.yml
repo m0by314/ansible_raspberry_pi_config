@@ -1,9 +1,9 @@
 ---
 - name: Check if new user exist.
-  command: getent passwd "{{ rasp_user }}"
+  command: getent passwd {{ rasp_user }}
   register: getent
   ignore_errors: yes
-  when: rasp_user|bool
+  when: rasp_user is defined
 
 - name: Add the user {{ rasp_user }} with a bash shell, appending the group 'sudo' to the user's groups.
   user:

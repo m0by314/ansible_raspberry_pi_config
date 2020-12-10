@@ -1,4 +1,6 @@
 ---
-raspberry_pi_basic_packages:
+rasp_basic_packages:
+  - openssh-server
+  - logrotate
   - fail2ban
   - ufw

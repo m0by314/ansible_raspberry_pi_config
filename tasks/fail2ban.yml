@@ -1,0 +1,13 @@
+---
+- name: Add sshd jail.
+  template:
+    src: templates/sshd.j2
+    dest: /etc/fail2ban/jail.d/sshd_jail.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Restart Fail2ban
+  service:
+    name: ssh
+    state: restarted

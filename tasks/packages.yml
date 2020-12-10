@@ -10,12 +10,12 @@
 
 - name: Install Basic packages.
   apt:
-    name: "{{ raspberry_pi_basic_packages }}"
+    name: "{{ rasp_basic_packages }}"
     state: present
-  when: raspberry_pi_basic_packages
+  when: rasp_basic_packages
 
 - name: Install Extra packages.
   apt:
-    name: "{{ raspberry_pi_extra_packages }}"
+    name: "{{ rasp_extra_packages }}"
     state: present
-  when: raspberry_pi_extra_packages
+  when: rasp_extra_packages

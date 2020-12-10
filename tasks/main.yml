@@ -38,6 +38,14 @@
 - name: Install packages.
   import_tasks: packages.yml
 
-# Reboot
+# Fail2ban.conf
+- name: Configure Fail2ban.
+  import_tasks: fail2ban.yml
+
+# Firewall
+- name: Set Firewall.
+  import_tasks: ufw.yml
+
+## Reboot
 - name: Reboot.
   import_tasks: reboot.yml
