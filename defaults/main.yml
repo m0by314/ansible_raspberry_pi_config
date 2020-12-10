@@ -11,7 +11,7 @@ rasp_ssh_port: 22
 ssh_key_file:
 
 # Interfacing Options
-SERIAL: false
+SERIAL: true
 CAMERA: false
 VNC: false
 SPI: false
