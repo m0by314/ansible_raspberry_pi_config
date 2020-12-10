@@ -1,8 +1,13 @@
 ---
+- name: Get VNC status
+  command: "raspi-config nonint get_vnc"
+  register: vnc_status
+  changed_when: False
+
 - name: Enable VNC.
   command: "raspi-config nonint do_vnc 0"
-  when: VNC
+  when: VNC and (vnc_status.stdout != '0')
 
 - name: Disable VNC.
   command: "raspi-config nonint do_vnc 1"
-  when: not VNC
+  when: not VNC  and (vnc_status.stdout != '1')

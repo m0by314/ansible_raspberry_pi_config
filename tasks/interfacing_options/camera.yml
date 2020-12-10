@@ -1,8 +1,13 @@
 ---
+- name: Get camera status
+  command: "raspi-config nonint get_camera"
+  register: camera_status
+  changed_when: False
+
 - name: Enable Camera.
   command: "raspi-config nonint do_camera 0"
-  when: CAMERA
+  when: CAMERA  and (camera_status.stdout != '0')
 
 - name: Disable Camera.
   command: "raspi-config nonint do_camera 1"
-  when: not CAMERA
+  when: not CAMERA and (camera_status.stdout != '1')

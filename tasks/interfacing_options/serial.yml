@@ -1,8 +1,13 @@
 ---
+- name: Get serial status
+  command: "raspi-config nonint get_serial"
+  register: serial_status
+  changed_when: False
+
 - name: Enable serial.
   command: "raspi-config nonint do_serial 0"
-  when: SERIAL
+  when: SERIAL  and (serial_status.stdout != '0')
 
 - name: Disable serial.
   command: "raspi-config nonint do_serial 1"
-  when: not SERIAL
+  when: not SERIAL and (serial_status.stdout != '1')
