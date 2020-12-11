@@ -1,7 +1,7 @@
 Ansible Role - Rasp Config
 ===========================
 
-[![linter](https://github.com/m0by314/ansible_rasp_config/workflows/linter/badge.svg?event=push)](https://github.com/m0by314/ansible_rasp_config/actions?query=workflow%3ACI)
+[![CI](https://github.com/m0by314/ansible_rasp_config/workflows/CI/badge.svg?event=push)](https://github.com/m0by314/ansible_rasp_config/actions?query=workflow%3ACI)
 [![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-rasp--config-green)](https://galaxy.ansible.com/m0by314/ansible_rasp_config)
 
 An Ansible role to configure and secure a Raspberry Pi.
