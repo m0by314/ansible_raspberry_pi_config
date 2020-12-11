@@ -8,10 +8,6 @@
   with_items: "{{ rasp_open_firewall_port }}"
   when: rasp_open_firewall_port
 
-- name: Set default rule to deny.
-  command: ufw default deny
-  when: rasp_open_firewall_port
-
 - name: Disable Firewall.
   command: ufw disable
   when: not rasp_open_firewall_port
