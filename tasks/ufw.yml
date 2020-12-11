@@ -1,13 +1,18 @@
 ---
 - name: Active Firewall.
-  command: echo "y" | ufw enable
+  ufw:
+    state: enabled
+    policy: deny
   when: rasp_open_firewall_port
 
 - name: Open port.
-  command: ufw allow {{ item }}
+  ufw:
+    rule: allow
+    port: '{{ item }}'
   with_items: "{{ rasp_open_firewall_port }}"
   when: rasp_open_firewall_port
 
 - name: Disable Firewall.
-  command: ufw disable
+  ufw:
+    state: disabled
   when: not rasp_open_firewall_port
