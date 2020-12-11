@@ -1,13 +1,13 @@
 ---
-- name: Get rGPIO status
+- name: Get remote GPIO status
   command: "raspi-config nonint get_rgpio"
   register: rgpio_status
   changed_when: False
 
 - name: Enable Remote GPIO.
   command: "raspi-config nonint do_rgpio 0"
-  when: RGPIO
+  when: RGPIO and (rgpio_status.stdout != '0')
 
 - name: Disable Remote GPIO.
   command: "raspi-config nonint do_rgpio 1"
-  when: not RGPIO
+  when: not RGPIO and (rgpio_status.stdout != '1')
