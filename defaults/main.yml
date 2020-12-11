@@ -1,16 +1,16 @@
 ---
-# defaults variable for rasp_config
+# defaults variable for ansible_rasp_config
 
-# New user configuration
-rasp_user:
-rasp_user_encrypted_password:
-rasp_user_password:
+### replace_pi_user.yml ###
+rasp_user:                      # replacement username pi
+rasp_user_encrypted_password:   # password encrypted
+rasp_user_password:             # password
 
-# SSH
+#### ssh.yml ###
 rasp_ssh_port: 22
-ssh_key_file:
+ssh_key_file:    # full path to the id_rsa.pub key
 
-# Interfacing Options
+### Interfacing Options ###
 SERIAL: true
 CAMERA: false
 VNC: false
@@ -19,8 +19,10 @@ I2C: false
 ONEWIRE: false
 RGPIO: false
 
-# Extra Packages
-rasp_extra_packages:
+### packages.yml ###
+rasp_extra_packages: [] # packages to install
 
-# Firewall open port
-rasp_open_firewall_port:
+### ufw.yml ###
+rasp_firewall: false       # by default firewall is not actived
+rasp_open_firewall_port:   # Firewall port to open
+  - "{{ rasp_ssh_port }}"

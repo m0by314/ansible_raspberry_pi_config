@@ -1,5 +1,6 @@
 ---
-rasp_basic_packages:
+# Variable used in packages.yml
+rasp_mandatory_packages:
   - openssh-server
   - logrotate
   - fail2ban

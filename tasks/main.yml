@@ -12,6 +12,10 @@
 
 - meta: flush_handlers
 
+# Packages
+- name: Install packages.
+  import_tasks: packages.yml
+
 # Interfacing options
 - name: camera.
   import_tasks: interfacing_options/camera.yml
@@ -34,10 +38,6 @@
 - name: vnc.
   import_tasks: interfacing_options/vnc.yml
 
-# Packages
-- name: Install packages.
-  import_tasks: packages.yml
-
 # Fail2ban.conf
 - name: Configure Fail2ban.
   import_tasks: fail2ban.yml
@@ -45,7 +45,8 @@
 # Firewall
 - name: Set Firewall.
   import_tasks: ufw.yml
+  when: rasp_firewall
 
-## Reboot
+# Reboot
 - name: Reboot.
   import_tasks: reboot.yml
