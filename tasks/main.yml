@@ -45,7 +45,6 @@
 # Firewall
 - name: Set Firewall.
   import_tasks: ufw.yml
-  when: rasp_firewall
 
 # Reboot
 - name: Reboot.
