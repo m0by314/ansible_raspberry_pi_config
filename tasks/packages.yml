@@ -4,15 +4,11 @@
     update_cache: true
     cache_valid_time: 3600
 
-#- name: Upgrade all packages to the latest version.
-#  apt:
-#    upgrade: dist
-
-- name: Install Basic packages.
+- name: Install mandatory packages.  # They are defined in vars/main.yml
   apt:
-    name: "{{ rasp_basic_packages }}"
+    name: "{{ rasp_mandatory_packages }}"
     state: present
-  when: rasp_basic_packages
+  when: rasp_mandatory_packages
 
 - name: Install Extra packages.
   apt:
