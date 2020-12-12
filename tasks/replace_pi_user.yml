@@ -9,7 +9,7 @@
   user:
     name: "{{ rasp_user }}"
     shell: /bin/bash
-    groups: sudo
+    groups: adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,input,netdev,spi,i2c,gpio
     append: yes
     home: /home/{{ rasp_user }}
     create_home: yes
