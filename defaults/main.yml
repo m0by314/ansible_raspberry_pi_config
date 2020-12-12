@@ -1,5 +1,5 @@
 ---
-# defaults variable for ansible_rasp_config
+# defaults variable for ansible_raspberry_pi_config
 
 ### replace_pi_user.yml ###
 rasp_user:                      # replacement username pi

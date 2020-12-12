@@ -1,8 +1,8 @@
-Ansible Role - Rasp Config
+Ansible Role - Raspberry Pi Config
 ===========================
 
-[![CI](https://github.com/m0by314/ansible_rasp_config/workflows/CI/badge.svg?event=push)](https://github.com/m0by314/ansible_rasp_config/actions?query=workflow%3ACI)
-[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-rasp--config-green)](https://galaxy.ansible.com/m0by314/ansible_rasp_config)
+[![CI](https://github.com/m0by314/ansible_raspberry_pi_config/workflows/CI/badge.svg?event=push)](https://github.com/m0by314/ansible_raspberry_pi_config/actions?query=workflow%3ACI)
+[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-Raspberry_Pi_config-green)](https://galaxy.ansible.com/m0by314/ansible_raspberry_pi_config)
 
 An Ansible role to configure and secure a Raspberry Pi.
 
@@ -77,7 +77,7 @@ Example Playbook
       - 8080
 
   roles:
-    - m0by314.ansible_rasp_config
+    - m0by314.ansible_raspberry_pi_config
 ```
 
 License
