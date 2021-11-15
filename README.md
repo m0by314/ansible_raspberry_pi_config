@@ -4,7 +4,7 @@ Ansible Role - Raspberry Pi Config
 [![CI](https://github.com/m0by314/ansible_raspberry_pi_config/workflows/CI/badge.svg?event=push)](https://github.com/m0by314/ansible_raspberry_pi_config/actions?query=workflow%3ACI)
 [![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-Raspberry_Pi_config-green)](https://galaxy.ansible.com/m0by314/ansible_raspberry_pi_config)
 
-An Ansible role to configure and secure a Raspberry Pi.
+An Ansible role to configure and secure a Raspberry Pi. (Functional with the OS Raspbian Lite)
 
 This role applies the security rules defined in the [official documentation](https://www.raspberrypi.org/documentation/configuration/security.md)
 
