@@ -5,7 +5,6 @@ rules:
   line-length:
     max: 120
     level: warning
-  warn_list: 
-    - experimental  # all rules tagged as experimental
-  yaml: 
-    - unnamed-task  # All tasks should be named
+  skip_list:
+    - var-namming
+ 
