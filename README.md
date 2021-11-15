@@ -22,8 +22,8 @@ Variables are listed below along with default values:
 Variable                          | Required | Default value | Description/Comment
 ----------------------------------| -------- | --------------| -----------
 **rasp_user**                     |  Yes     |               | User who will replace pi user
-**rasp_user_encrypted_password**  |  Yes     |               | The password must be encrypted for the use of the module. See  https://docs.ansible.com/ansible/faq.html#how-do-i-generate-encrypted-passwords-for-the-user-module for details on various ways to generate these password values.
-**rasp_user_password**            |  Yes     |               | Password encrypt with ansible-vault or not encrypt 
+**rasp_user_encrypted_password**  |  Yes     |               | Password of the new user. The password must be encrypted for the use of the module ansible.builtin.user. See  https://docs.ansible.com/ansible/faq.html#how-do-i-generate-encrypted-passwords-for-the-user-module for details on various ways to generate these password values.
+**rasp_user_password**            |  Yes     |               | Password of the new user, necessary for the use of sudo commands. The password must be encrypt with ansible-vault or not. 
 **rasp_ssh_port**                 |          | 22            | Port ssh 
 **ssh_key_file**                  |  Yes     |               | Full path to the id_rsa.pub key
 **SERIAL**                        |          | true          | Enable/disable shell and kernel messages on the serial connection. (enabled by default)
